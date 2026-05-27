@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class HomeScreen {
 
     // Encapsulation
-    private Scanner scanner;
+    private final Scanner scanner;
 
     // Constructor
     public HomeScreen() {
@@ -14,9 +14,9 @@ public class HomeScreen {
         scanner = new Scanner(System.in);
     }
 
-    /*
-        Display Home Screen
-     */
+
+        //Display Home Screen
+
     public void display() {
 
         boolean running = true;
@@ -59,7 +59,7 @@ public class HomeScreen {
                     OrderScreen orderScreen =
                             new OrderScreen();
 
-                    orderScreen.display();
+                    orderScreen.displayOrderMenu();
 
                     break;
 
