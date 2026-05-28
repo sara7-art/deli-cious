@@ -12,14 +12,13 @@ import java.util.Scanner;
 public class OrderScreen
 {
     // Used to read user input
-    private Scanner scanner;
+    private final Scanner scanner;
 
     // Current customer order
-    private Order order;
+    private final Order order;
 
-    /*
-     * Constructor
-     */
+    // CONSTRUCTOR
+
     public OrderScreen() {
         scanner = new Scanner(System.in);
 
@@ -48,39 +47,34 @@ public class OrderScreen
             int choice = scanner.nextInt();
             scanner.nextLine();
 
-            /*
-             * Add sandwich
-             */
+            // ADD SANDWICH
+
             if(choice == 1)
             {
                 addSandwich();
             }
 
-            /*
-             * Add drink
-             */
+            // ADD DRINK
+
             else if(choice == 2)
             {
                 addDrink();
             }
 
-            /*
-             * Add chips
-             */
+           // ADD CHIPS
+
             else if(choice == 3)
             {
                 addChips();
             }
 
-            /*
-             * Checkout
-             */
+            // CHECKOUT
+
             else if(choice == 4)
             {
-                /*
-                 * Prevent empty orders
-                 */
-                if(order.getProducts().size() == 0)
+                // PREVENT EMPTY ORDER
+
+                if(order.getProducts().isEmpty())
                 {
                     System.out.println("Order is empty.");
                 }
@@ -93,9 +87,8 @@ public class OrderScreen
                 }
             }
 
-            /*
-             * Cancel order
-             */
+            // CANCEL ORDER
+
             else if(choice == 0)
             {
                 System.out.println("Order canceled.");
@@ -103,9 +96,7 @@ public class OrderScreen
                 ordering = false;
             }
 
-            /*
-             * Invalid input
-             */
+            // INVALID INPUT
             else
             {
                 System.out.println("Invalid option.");
@@ -113,10 +104,9 @@ public class OrderScreen
         }
     }
 
-    /*
-     * Creates sandwich object
-     * and allows customer to customize it
-     */
+
+     // CREATES SANDWICH OBJECT AND ALLOWS CUSTOMER TO CUSTOMIZE IT
+
     public void addSandwich()
     {
         System.out.println("\nChoose sandwich size:");
@@ -141,14 +131,13 @@ public class OrderScreen
 
         boolean toasted = toastedInput.equalsIgnoreCase("yes");
 
-        /*
-         * Create sandwich object
-         */
+
+         // CREATE SANDWICH OBJECT
+
         Sandwich sandwich = new Sandwich(size, bread, toasted);
 
-        /*
-         * Topping menu
-         */
+        // TOPPING MENU
+
         boolean addingToppings = true;
 
         while(addingToppings)
@@ -168,74 +157,65 @@ public class OrderScreen
             int toppingChoice = scanner.nextInt();
             scanner.nextLine();
 
-            /*
-             * Premium meat
-             */
+            // PREMIUM MEAT
+
             if(toppingChoice == 1)
             {
                 addMeat(sandwich);
             }
 
-            /*
-             * Premium cheese
-             */
+            // PREMIUM CHEESE
+
             else if(toppingChoice == 2)
             {
                 addCheese(sandwich);
             }
 
-            /*
-             * Free regular toppings
-             */
+            // FREE REGULAR TOPPINGS
+
             else if(toppingChoice == 3)
             {
                 addRegularTopping(sandwich);
             }
 
-            /*
-             * Free sauces
-             */
+            // FREE SAUCES
+
             else if(toppingChoice == 4)
             {
                 addSauce();
             }
 
-            /*
-             * Free sides
-             */
+            // FREE SIDES
+
             else if(toppingChoice == 5)
             {
                 addSide();
             }
 
-            /*
-             * Finish sandwich
-             */
+            // FINISH SANDWICH
+
             else if(toppingChoice == 0)
             {
                 addingToppings = false;
             }
 
-            /*
-             * Invalid input
-             */
+            // INVALID INPUT
+
             else
             {
                 System.out.println("Invalid option.");
             }
         }
 
-        /*
-         * Add sandwich into order
-         */
+       // ADD SANDWICH INTO ORDER
+
         order.addProduct(sandwich);
 
         System.out.println("Sandwich added successfully.");
     }
 
-    /*
-     * Add premium meat
-     */
+    // ADD PREMIUM MEAT
+
     public void addMeat(Sandwich sandwich)
     {
         System.out.println("\nChoose meat:");
@@ -254,10 +234,10 @@ public class OrderScreen
 
         boolean extra = extraInput.equalsIgnoreCase("yes");
 
-        /*
-         * type = meat
-         * extra can affect price
-         */
+
+         // TYPE = MEAT
+        // EXTRA AFFECT PRICE
+
         Topping topping = new Topping(meat, "meat", extra);
 
         sandwich.addTopping(topping);
@@ -265,9 +245,9 @@ public class OrderScreen
         System.out.println(meat + " added.");
     }
 
-    /*
-     * Add premium cheese
-     */
+
+     // ADD PREMIUM CHEESE
+
     public void addCheese(Sandwich sandwich)
     {
         System.out.println("\nChoose cheese:");
@@ -284,10 +264,9 @@ public class OrderScreen
 
         boolean extra = extraInput.equalsIgnoreCase("yes");
 
-        /*
-         * type = cheese
-         * extra can affect price
-         */
+        // TYPE = MEAT
+        // EXTRA AFFECT PRICE
+
         Topping topping = new Topping(cheese, "cheese", extra);
 
         sandwich.addTopping(topping);
@@ -295,9 +274,8 @@ public class OrderScreen
         System.out.println(cheese + " added.");
     }
 
-    /*
-     * Add free regular toppings
-     */
+    // ADD FREE REGULAR TOPPINGS
+
     public void addRegularTopping(Sandwich sandwich)
     {
         System.out.println("\nChoose regular topping:");
@@ -313,9 +291,8 @@ public class OrderScreen
 
         String toppingName = scanner.nextLine();
 
-        /*
-         * Regular toppings are free
-         */
+        // REGULAR TOPPINGS ARE FREE
+
         Topping topping = new Topping(toppingName, "regular", false);
 
         sandwich.addTopping(topping);
@@ -323,9 +300,8 @@ public class OrderScreen
         System.out.println(toppingName + " added.");
     }
 
-    /*
-     * Add free sauces
-     */
+    // ADD FREE SAUCES
+
     public void addSauce()
     {
         System.out.println("\nChoose sauce:");
@@ -338,16 +314,14 @@ public class OrderScreen
 
         String sauce = scanner.nextLine();
 
-        /*
-         * Add sauce into order
-         */
+        // ADD SAUCE INTO ORDER
+
         order.addSauce(sauce);
 
         System.out.println(sauce + " added.");
     }
-    /*
-     * Add side into order
-     */
+    // ADD FREE SIDE
+
     public void addSide()
     {
         System.out.println("\nChoose side:");
@@ -356,17 +330,15 @@ public class OrderScreen
 
         String side = scanner.nextLine();
 
-        /*
-         * Add side into order
-         */
+        // ADD SIDE INTO ORDER
+
         order.addSide(side);
 
         System.out.println(side + " added.");
     }
 
-    /*
-     * Add drink into order
-     */
+    // ADD DRINK INTO ORDER
+
     public void addDrink()
     {
         System.out.println("\nChoose drink size:");

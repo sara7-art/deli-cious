@@ -3,8 +3,8 @@ package com.pluralsight.model;
 import java.util.ArrayList;
 
 public class Order {
-    //Polymorphism:
-    // One list stores all product types
+
+    // One list stores all product types(POLYMORPHISM)
 
     private final ArrayList<Product> products;
 
@@ -21,9 +21,9 @@ public class Order {
     // Constructor
 
     public Order() {
-        products = new ArrayList<Product>();
-        sauces = new ArrayList<String>();
-        sides = new ArrayList<String>();
+        products = new ArrayList<>();
+        sauces = new ArrayList<>();
+        sides = new ArrayList<>();
     }
 
 
@@ -71,11 +71,11 @@ public class Order {
     public double calculateTotal() {
         double total = 0;
 
-        /*
-         * Loop through all products
-         */
-        for (int i = 0; i < products.size(); i++) {
-            total += products.get(i).calculatePrice();
+
+         // Loop through all products
+
+        for (Product product : products) {
+            total += product.calculatePrice();
         }
 
         return total;
@@ -91,56 +91,46 @@ public class Order {
         text += "         ORDER DETAILS\n";
         text += "=================================\n";
 
-        /*
-         * Loop through all products
-         */
-        for (int i = 0; i < products.size(); i++) {
-            Product product = products.get(i);
+       // LOOP THROUGH ALL PRODUCTS
 
+        for (Product product : products) {
             /*
              * Sandwich
              */
-            if (product instanceof Sandwich) {
-                Sandwich sandwich = (Sandwich) product;
+            if (product instanceof Sandwich sandwich) {
 
                 text += sandwich.getReceiptText();
             }
 
-            /*
-             * Drink
-             */
-            else if (product instanceof Drink) {
-                Drink drink = (Drink) product;
+            //DRINK
+
+            else if (product instanceof Drink drink) {
 
                 text += drink.getReceiptText();
             }
 
-            /*
-             * Chips
-             */
-            else if (product instanceof Chips) {
-                Chips chips = (Chips) product;
+            // CHIPS
+
+            else if (product instanceof Chips chips) {
 
                 text += chips.getReceiptText();
             }
         }
-        /*
-         * Display sauces
-         */
-        if(sauces.size() > 0)
+
+        // DISPLAY SAUCES
+
+
+        if(!sauces.isEmpty())
         {
             text += "\nFree Sauces:\n";
 
-            for(int i = 0; i < sauces.size(); i++)
-            {
-                text += "- " + sauces.get(i) + "\n";
+            for (String sauce : sauces) {
+                text += "- " + sauce + "\n";
             }
         }
 
-        /*
-         * Display sides
-         */
-        if(sides.size() > 0)
+        // DISPLAY SIDES
+        if(!sides.isEmpty())
         {
             text += "\nFree Sides:\n";
 

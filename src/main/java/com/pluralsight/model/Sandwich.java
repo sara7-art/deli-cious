@@ -16,9 +16,9 @@ public class Sandwich extends Product
 
         public Sandwich(int size, String breadType, boolean toasted)
         {
-            /*
-             * Call parent constructor
-             */
+
+            // CALL PARENT CONSTRUCTOR
+
             super("Sandwich");
 
             this.size = size;
@@ -27,15 +27,15 @@ public class Sandwich extends Product
 
             this.toasted = toasted;
 
-            /*
-             * Create empty topping list
-             */
+
+            // Create empty topping list
+
             toppings = new ArrayList<Topping>();
         }
 
-        /*
-         * Add topping into sandwich
-         */
+
+         // Add topping into sandwich
+
         public void addTopping(Topping topping)
         {
             toppings.add(topping);
@@ -66,9 +66,9 @@ public class Sandwich extends Product
         {
             double total = 0;
 
-            /*
-             * Base sandwich price
-             */
+
+            // Base sandwich price
+
             if(size == 4)
             {
                 total = 5.50;
@@ -82,23 +82,22 @@ public class Sandwich extends Product
                 total = 8.50;
             }
 
-            /*
-             * Add topping prices
-             */
-            for(int i = 0; i < toppings.size(); i++)
-            {
-                /*
-                 * Each topping calculates its own price
-                 */
-                total += toppings.get(i).getPrice(size);
+
+            // Add topping prices
+
+            for (Topping topping : toppings) {
+
+                 // Each topping calculates its own price
+
+                total += topping.getPrice(size);
             }
 
             return total;
         }
 
-        /*
-         * Create receipt text
-         */
+
+         // Create receipt text
+
         public String getReceiptText()
         {
             String text = "";
@@ -108,24 +107,20 @@ public class Sandwich extends Product
             text += "Bread: " + breadType + "\n";
             text += "Toasted: " + toasted + "\n";
 
-            /*
-             * Premium meats
-             */
+
+             // Premium meats
+
             text += "\nPremium Meats:\n";
 
-            for(int i = 0; i < toppings.size(); i++)
-            {
-                Topping topping = toppings.get(i);
+            for (Topping topping : toppings) {
+                if (topping.getType().equalsIgnoreCase("meat")) {
+                    text += "- " + topping.getName() + " ..... $"
+                            + topping.getPrice(size);
 
-                if(topping.getType().equalsIgnoreCase("meat"))
-                {
-                    text += "- " + topping.getName();
 
-                    /*
-                     * Display extra meat
-                     */
-                    if(topping.isExtra())
-                    {
+                     // Display extra meat
+
+                    if (topping.isExtra()) {
                         text += " (Extra)";
                     }
 
@@ -133,24 +128,20 @@ public class Sandwich extends Product
                 }
             }
 
-            /*
-             * Premium cheeses
-             */
+
+             // Premium cheeses
+
             text += "\nPremium Cheeses:\n";
 
-            for(int i = 0; i < toppings.size(); i++)
-            {
-                Topping topping = toppings.get(i);
-
-                if(topping.getType().equalsIgnoreCase("cheese"))
-                {
-                    text += "- " + topping.getName();
+            for (Topping topping : toppings) {
+                if (topping.getType().equalsIgnoreCase("cheese")) {
+                    text += "- " + topping.getName() + " ..... $"
+                            + topping.getPrice(size);
 
                     /*
                      * Display extra cheese
                      */
-                    if(topping.isExtra())
-                    {
+                    if (topping.isExtra()) {
                         text += " (Extra)";
                     }
 
@@ -158,18 +149,13 @@ public class Sandwich extends Product
                 }
             }
 
-            /*
-             * Free regular toppings
-             */
+            // FREE REGULAR TOPPINGS
             text += "\nRegular Toppings:\n";
 
-            for(int i = 0; i < toppings.size(); i++)
-            {
-                Topping topping = toppings.get(i);
-
-                if(topping.getType().equalsIgnoreCase("regular"))
-                {
-                    text += "- " + topping.getName() + "\n";
+            for (Topping topping : toppings) {
+                if (topping.getType().equalsIgnoreCase("regular")) {
+                    text += "- " + topping.getName() + " ..... $"
+                            + topping.getPrice(size) + "\n";
                 }
             }
 

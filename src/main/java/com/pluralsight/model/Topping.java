@@ -1,16 +1,16 @@
 package com.pluralsight.model;
 
 public class Topping {
+
     // Encapsulation
-    private String name;
+    private final String name;
 
-    private String type;
+    private final String type;
 
-    private boolean extra;
+    private final boolean extra;
 
-    /*
-     * Constructor
-     */
+    // CONSTRUCTOR
+
     public Topping(String name, String type, boolean extra)
     {
         this.name = name;
@@ -20,17 +20,13 @@ public class Topping {
         this.extra = extra;
     }
 
-    /*
-     * Get topping name
-     */
+    // GET TOPPING NAME
     public String getName()
     {
         return name;
     }
 
-    /*
-     * Get topping type
-     */
+    // GET TOPPING TYPE
     public String getType()
     {
         return type;
@@ -51,9 +47,9 @@ public class Topping {
     {
         double price = 0;
 
-        /*
-         * Premium meat prices
-         */
+
+         // Premium meat prices
+
         if(type.equalsIgnoreCase("meat"))
         {
             if(sandwichSize == 4)
@@ -85,9 +81,8 @@ public class Topping {
             }
         }
 
-        /*
-         * Premium cheese prices
-         */
+        // PREMIUM CHEESE PRICES
+
         else if(type.equalsIgnoreCase("cheese"))
         {
             if(sandwichSize == 4)
@@ -119,9 +114,9 @@ public class Topping {
             }
         }
 
-        /*
-         * Regular toppings, sauces, and sides are free
-         */
+
+         // REGULAR TOPPINGS, SAUCES, AND SIDES ARE FREE
+
         else
         {
             price = 0;
