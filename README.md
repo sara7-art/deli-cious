@@ -20,17 +20,17 @@ Wrap
 
 Toasted option: 
 Premium Toppings are 
-Meats
-Steak
-Ham
-Salami
-Roast Beef
-Chicken
-Bacon
+Meats,
+Steak,
+Ham,
+Salami,
+Roast Beef,
+Chicken,
+Bacon.
 
 Extra meat is available for an additional charge.
 
-Cheeses
+Cheeses are: 
 American
 Provolone
 Cheddar
@@ -38,21 +38,21 @@ Swiss
 
 Extra cheese is available for an additional charge.
 
-Regular Toppings
-Lettuce
-Peppers
-Onions
-Tomatoes
-Jalapenos
-Cucumbers
-Pickles
-Guacamole
-Mushrooms
+Regular Toppings: 
+Lettuce,
+Peppers,
+Onions,
+Tomatoes,
+Jalapenos,
+Cucumbers,
+Pickles,
+Guacamole,
+Mushrooms.
 
-Drinks
-Small
-Medium
-Large
+Drinks: 
+Small,
+Medium,
+Large.
 
 Chips
 Single size available
