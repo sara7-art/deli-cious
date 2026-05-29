@@ -114,11 +114,9 @@ import java.util.Scanner;
                     folder.mkdir();
                 }
 
-
                 // Create timestamp
 
                 LocalDateTime now = LocalDateTime.now();
-
 
                 // Format:
                 // yyyyMMdd-hhmmss

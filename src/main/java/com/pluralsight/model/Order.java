@@ -134,9 +134,8 @@ public class Order {
         {
             text += "\nFree Sides:\n";
 
-            for(int i = 0; i < sides.size(); i++)
-            {
-                text += "- " + sides.get(i) + "\n";
+            for (String side : sides) {
+                text += "- " + side + "\n";
             }
         }
 

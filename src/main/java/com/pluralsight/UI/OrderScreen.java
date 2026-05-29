@@ -12,8 +12,7 @@ import com.pluralsight.signature.PhillyCheeseSteak;
 
 import java.util.Scanner;
 
-public class OrderScreen
-{
+public class OrderScreen {
     // Used to read user input
     private final Scanner scanner;
 
@@ -30,12 +29,10 @@ public class OrderScreen
     }
 
 
-    public void displayOrderMenu()
-    {
+    public void displayOrderMenu() {
         boolean ordering = true;
 
-        while(ordering)
-        {
+        while (ordering) {
             System.out.println("\n=================================");
             System.out.println("           ORDER MENU");
             System.out.println("=================================");
@@ -48,54 +45,46 @@ public class OrderScreen
 
             System.out.print("Choose an option: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = getValidMenuChoice();
 
             // ADD SANDWICH
 
-            if(choice == 1)
-            {
+            if (choice == 1) {
                 addCustomSandwich();
             }
 
             //
 
-            else if(choice == 2) {
+            else if (choice == 2) {
                 addSignatureSandwich();
             }
 
             // ADD DRINK
 
-            else if(choice == 3)
-            {
+            else if (choice == 3) {
                 addDrink();
             }
 
-           // ADD CHIPS
+            // ADD CHIPS
 
-            else if(choice == 4)
-            {
+            else if (choice == 4) {
                 addChips();
             }
 
             // CHECKOUT
 
-            else if(choice == 5)
-            {
+            else if (choice == 5) {
                 // PREVENT EMPTY ORDER
 
-                if(order.getProducts().isEmpty())
-                {
+                if (order.getProducts().isEmpty()) {
                     System.out.println("Order is empty.");
-                }
-                else
-                {
-                   // Create checkout service
+                } else {
+                    // Create checkout service
 
                     Checkout checkout =
                             new Checkout();
 
-                     // Send order into checkout
+                    // Send order into checkout
 
                     checkout.displayCheckout(order);
 
@@ -106,26 +95,23 @@ public class OrderScreen
 
             // CANCEL ORDER
 
-            else if(choice == 0)
-            {
+            else if (choice == 0) {
                 System.out.println("Order canceled.");
 
                 ordering = false;
             }
 
             // INVALID INPUT
-            else
-            {
+            else {
                 System.out.println("Invalid option.");
             }
         }
     }
 
 
-     // CREATES SANDWICH OBJECT AND ALLOWS CUSTOMER TO CUSTOMIZE IT
+    // CREATES SANDWICH OBJECT AND ALLOWS CUSTOMER TO CUSTOMIZE IT
 
-    public void addCustomSandwich()
-    {
+    public void addCustomSandwich() {
         System.out.println("\nChoose sandwich size:");
         System.out.println("4");
         System.out.println("8");
@@ -149,7 +135,7 @@ public class OrderScreen
         boolean toasted = toastedInput.equalsIgnoreCase("yes");
 
 
-         // CREATE SANDWICH OBJECT
+        // CREATE SANDWICH OBJECT
 
         Sandwich sandwich = new Sandwich(size, bread, toasted);
 
@@ -157,8 +143,7 @@ public class OrderScreen
 
         boolean addingToppings = true;
 
-        while(addingToppings)
-        {
+        while (addingToppings) {
             System.out.println("\n=================================");
             System.out.println("          TOPPING MENU");
             System.out.println("=================================");
@@ -171,60 +156,52 @@ public class OrderScreen
 
             System.out.print("Choose an option: ");
 
-            int toppingChoice = scanner.nextInt();
-            scanner.nextLine();
+            int toppingChoice = getValidMenuChoice();
 
             // PREMIUM MEAT
 
-            if(toppingChoice == 1)
-            {
+            if (toppingChoice == 1) {
                 addMeat(sandwich);
             }
 
             // PREMIUM CHEESE
 
-            else if(toppingChoice == 2)
-            {
+            else if (toppingChoice == 2) {
                 addCheese(sandwich);
             }
 
             // FREE REGULAR TOPPINGS
 
-            else if(toppingChoice == 3)
-            {
+            else if (toppingChoice == 3) {
                 addRegularTopping(sandwich);
             }
 
             // FREE SAUCES
 
-            else if(toppingChoice == 4)
-            {
+            else if (toppingChoice == 4) {
                 addSauce();
             }
 
             // FREE SIDES
 
-            else if(toppingChoice == 5)
-            {
+            else if (toppingChoice == 5) {
                 addSide();
             }
 
             // FINISH SANDWICH
 
-            else if(toppingChoice == 0)
-            {
+            else if (toppingChoice == 0) {
                 addingToppings = false;
             }
 
             // INVALID INPUT
 
-            else
-            {
+            else {
                 System.out.println("Invalid option.");
             }
         }
 
-       // ADD SANDWICH INTO ORDER
+        // ADD SANDWICH INTO ORDER
 
         order.addProduct(sandwich);
 
@@ -233,8 +210,7 @@ public class OrderScreen
 
     // ADD PREMIUM MEAT
 
-    public void addMeat(Sandwich sandwich)
-    {
+    public void addMeat(Sandwich sandwich) {
         System.out.println("\nChoose meat:");
         System.out.println("Steak");
         System.out.println("Ham");
@@ -252,7 +228,7 @@ public class OrderScreen
         boolean extra = extraInput.equalsIgnoreCase("yes");
 
 
-         // TYPE = MEAT
+        // TYPE = MEAT
         // EXTRA AFFECT PRICE
 
         Topping topping = new Topping(meat, "meat", extra);
@@ -263,10 +239,9 @@ public class OrderScreen
     }
 
 
-     // ADD PREMIUM CHEESE
+    // ADD PREMIUM CHEESE
 
-    public void addCheese(Sandwich sandwich)
-    {
+    public void addCheese(Sandwich sandwich) {
         System.out.println("\nChoose cheese:");
         System.out.println("American");
         System.out.println("Provolone");
@@ -293,8 +268,7 @@ public class OrderScreen
 
     // ADD FREE REGULAR TOPPINGS
 
-    public void addRegularTopping(Sandwich sandwich)
-    {
+    public void addRegularTopping(Sandwich sandwich) {
         System.out.println("\nChoose regular topping:");
         System.out.println("Lettuce");
         System.out.println("Peppers");
@@ -319,8 +293,7 @@ public class OrderScreen
 
     // ADD FREE SAUCES
 
-    public void addSauce()
-    {
+    public void addSauce() {
         System.out.println("\nChoose sauce:");
         System.out.println("Mayo");
         System.out.println("Mustard");
@@ -339,8 +312,7 @@ public class OrderScreen
     }
     // ADD FREE SIDE
 
-    public void addSide()
-    {
+    public void addSide() {
         System.out.println("\nChoose side:");
         System.out.println("Au Jus");
         System.out.println("Sauce");
@@ -355,7 +327,7 @@ public class OrderScreen
     }
 
 
-      // Add signature sandwich
+    // Add signature sandwich
 
     public void addSignatureSandwich() {
         System.out.println("\nChoose Signature Sandwich:");
@@ -364,51 +336,46 @@ public class OrderScreen
 
         System.out.print("Choose option: ");
 
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        int choice = getValidMenuChoice();
 
         Sandwich sandwich = null;
 
-         // Create BLT
+        // Create BLT
 
-        if(choice == 1)
-        {
+        if (choice == 1) {
             sandwich = new BLT();
 
 
-             // Add ranch sauce automatically
+            // Add ranch sauce automatically
 
             order.addSauce("Ranch");
         }
 
 
-         // Create Philly Cheese Steak
-        else if(choice == 2)
-        {
+        // Create Philly Cheese Steak
+        else if (choice == 2) {
             sandwich = new PhillyCheeseSteak();
 
 
-             // Add mayo sauce automatically
+            // Add mayo sauce automatically
 
             order.addSauce("Mayo");
-        }
-
-        else
-        {
+        } else {
             System.out.println("Invalid option.");
 
             return;
         }
 
-          // Allow customer customization
+        // Allow customer customization
         customizeSignatureSandwich(sandwich);
 
-         // Add sandwich into order
+        // Add sandwich into order
 
         order.addProduct(sandwich);
 
         System.out.println("Signature sandwich added.");
     }
+
     public void customizeSignatureSandwich(Sandwich sandwich) {
         boolean customizing = true;
 
@@ -440,8 +407,7 @@ public class OrderScreen
 
     // ADD DRINK INTO ORDER
 
-    public void addDrink()
-    {
+    public void addDrink() {
         System.out.println("\nChoose drink size:");
         System.out.println("Small");
         System.out.println("Medium");
@@ -457,12 +423,24 @@ public class OrderScreen
     }
 
 
-    public void addChips()
-    {
+    public void addChips() {
         Chips chips = new Chips();
 
         order.addProduct(chips);
 
         System.out.println("Chips added.");
+    }
+
+    public int getValidMenuChoice() {
+        while (true) {
+            String input = scanner.nextLine();
+
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input.");
+                System.out.print("Please enter a number: ");
+            }
+        }
     }
 }

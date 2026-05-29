@@ -1,6 +1,7 @@
 package com.pluralsight.model;
 
 public abstract class Product implements Priceable {
+
     // Encapsulation
     private String name;
 
