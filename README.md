@@ -72,9 +72,9 @@ Steak
 American Cheese
 Peppers
 Toasted
-OOP Concepts Used
-Encapsulation
 
+______________
+#Encapsulation
 Private fields are used throughout the application with getters and setters to protect data.
 
 Examples:
@@ -104,6 +104,8 @@ This allows Sandwich, Drink, and Chips objects to be treated as Product objects.
 #Abstraction
 The Product class is abstract and serves as the foundation for all products.
 
+________________
+
 Project Structure
 
 |______________
@@ -127,6 +129,7 @@ signature (BLT.java, PhillyCheeseSteak.java)
 ________
 
 Program.java
+|_________
 
 #Receipt
 Receipts are automatically saved when an order is confirmed.
@@ -142,6 +145,8 @@ receipts/
 // 20260528-153951.txt
 
 Each receipt file name is generated using the current date and time.
+
+__________
 
 How to Run
 Open the project in IntelliJ IDEA.
