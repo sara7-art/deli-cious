@@ -10,6 +10,7 @@ import com.pluralsight.signature.BLT;
 import com.pluralsight.signature.PhillyCheeseSteak;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OrderScreen {
@@ -150,8 +151,9 @@ public class OrderScreen {
             System.out.println("1. Premium Meat");
             System.out.println("2. Premium Cheese");
             System.out.println("3. Regular Topping");
-            System.out.println("4. Sauce");
-            System.out.println("5. Side");
+            System.out.println("4. Remove Topping");
+            System.out.println("5. Sauce");
+            System.out.println("6. Side");
             System.out.println("0. Finish Sandwich");
 
             System.out.print("Choose an option: ");
@@ -176,15 +178,20 @@ public class OrderScreen {
                 addRegularTopping(sandwich);
             }
 
+            // Remove TOPPING
+            else if (toppingChoice == 4) {
+                removeTopping(sandwich);
+            }
+
             // FREE SAUCES
 
-            else if (toppingChoice == 4) {
+            else if (toppingChoice == 5) {
                 addSauce();
             }
 
             // FREE SIDES
 
-            else if (toppingChoice == 5) {
+            else if (toppingChoice == 6) {
                 addSide();
             }
 
@@ -431,6 +438,33 @@ public class OrderScreen {
         System.out.println("Chips added.");
     }
 
+
+    //
+    public void removeTopping(Sandwich sandwich) {
+        ArrayList<Topping> toppings = sandwich.getToppings();
+
+        if (toppings.size() == 0) {
+            System.out.println("No toppings to remove.");
+            return;
+        }
+
+        System.out.println("\nCurrent Toppings:");
+
+        for (int i = 0; i < toppings.size(); i++) {
+            System.out.println((i + 1) + ". "
+                    + toppings.get(i).getName());
+        }
+
+        System.out.print("Choose topping to remove: ");
+
+        int choice = getValidMenuChoice();
+
+        sandwich.removeTopping(choice - 1);
+
+        System.out.println("Topping removed.");
+    }
+
+
     public int getValidMenuChoice() {
         while (true) {
             String input = scanner.nextLine();
@@ -444,3 +478,4 @@ public class OrderScreen {
         }
     }
 }
+

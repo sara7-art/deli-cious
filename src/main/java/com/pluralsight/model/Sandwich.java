@@ -61,6 +61,14 @@ public class Sandwich extends Product
             return toppings;
         }
 
+        // Remove topping by index
+
+        public void removeTopping(int index) {
+            if (index >= 0 && index < toppings.size()) {
+                toppings.remove(index);
+            }
+        }
+
         @Override
         public double calculatePrice()
         {
