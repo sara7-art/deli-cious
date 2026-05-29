@@ -18,8 +18,8 @@ Wheat
 Rye
 Wrap
 
-Toasted option
-Premium Toppings
+Toasted option: 
+Premium Toppings are 
 Meats
 Steak
 Ham
@@ -129,7 +129,7 @@ signature (BLT.java, PhillyCheeseSteak.java)
 ________
 
 Program.java
-|_________
+_______________
 
 #Receipt
 Receipts are automatically saved when an order is confirmed.
@@ -148,7 +148,7 @@ Each receipt file name is generated using the current date and time.
 
 __________
 
-How to Run
+How to Run: 
 Open the project in IntelliJ IDEA.
 Run Program.java.
 Select menu options.
