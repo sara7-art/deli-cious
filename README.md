@@ -105,8 +105,10 @@ This allows Sandwich, Drink, and Chips objects to be treated as Product objects.
 The Product class is abstract and serves as the foundation for all products.
 
 Project Structure
-com.pluralsight:
 
+|______________
+com.pluralsight:
+________
 
 model( Priceable.java, Product.java, Topping.java, Sandwich.java, Drink.java, Chips.java, Order.java)
 
