@@ -149,6 +149,7 @@ import java.util.Scanner;
                 writer.close();
 
                 System.out.println("Receipt saved successfully.");
+
             }
             catch(IOException e)
             {

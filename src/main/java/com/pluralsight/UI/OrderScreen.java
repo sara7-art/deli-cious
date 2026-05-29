@@ -5,6 +5,9 @@ import com.pluralsight.model.Drink;
 import com.pluralsight.model.Topping;
 import com.pluralsight.model.Order;
 import com.pluralsight.model.Chips;
+import com.pluralsight.service.Checkout;
+import com.pluralsight.signature.BLT;
+import com.pluralsight.signature.PhillyCheeseSteak;
 
 
 import java.util.Scanner;
@@ -36,10 +39,11 @@ public class OrderScreen
             System.out.println("\n=================================");
             System.out.println("           ORDER MENU");
             System.out.println("=================================");
-            System.out.println("1. Add Sandwich");
-            System.out.println("2. Add Drink");
-            System.out.println("3. Add Chips");
-            System.out.println("4. Checkout");
+            System.out.println("1. Add Custom Sandwich");
+            System.out.println("2. Add Signature Sandwich");
+            System.out.println("3. Add Drink");
+            System.out.println("4. Add Chips");
+            System.out.println("5. Checkout");
             System.out.println("0. Cancel Order");
 
             System.out.print("Choose an option: ");
@@ -51,26 +55,32 @@ public class OrderScreen
 
             if(choice == 1)
             {
-                addSandwich();
+                addCustomSandwich();
+            }
+
+            //
+
+            else if(choice == 2) {
+                addSignatureSandwich();
             }
 
             // ADD DRINK
 
-            else if(choice == 2)
+            else if(choice == 3)
             {
                 addDrink();
             }
 
            // ADD CHIPS
 
-            else if(choice == 3)
+            else if(choice == 4)
             {
                 addChips();
             }
 
             // CHECKOUT
 
-            else if(choice == 4)
+            else if(choice == 5)
             {
                 // PREVENT EMPTY ORDER
 
@@ -80,10 +90,17 @@ public class OrderScreen
                 }
                 else
                 {
-                    System.out.println("\n");
-                    System.out.println(order.getOrderDetails());
+                   // Create checkout service
+
+                    Checkout checkout =
+                            new Checkout();
+
+                     // Send order into checkout
+
+                    checkout.displayCheckout(order);
 
                     ordering = false;
+
                 }
             }
 
@@ -107,7 +124,7 @@ public class OrderScreen
 
      // CREATES SANDWICH OBJECT AND ALLOWS CUSTOMER TO CUSTOMIZE IT
 
-    public void addSandwich()
+    public void addCustomSandwich()
     {
         System.out.println("\nChoose sandwich size:");
         System.out.println("4");
@@ -335,6 +352,90 @@ public class OrderScreen
         order.addSide(side);
 
         System.out.println(side + " added.");
+    }
+
+
+      // Add signature sandwich
+
+    public void addSignatureSandwich() {
+        System.out.println("\nChoose Signature Sandwich:");
+        System.out.println("1. BLT");
+        System.out.println("2. Philly Cheese Steak");
+
+        System.out.print("Choose option: ");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        Sandwich sandwich = null;
+
+         // Create BLT
+
+        if(choice == 1)
+        {
+            sandwich = new BLT();
+
+
+             // Add ranch sauce automatically
+
+            order.addSauce("Ranch");
+        }
+
+
+         // Create Philly Cheese Steak
+        else if(choice == 2)
+        {
+            sandwich = new PhillyCheeseSteak();
+
+
+             // Add mayo sauce automatically
+
+            order.addSauce("Mayo");
+        }
+
+        else
+        {
+            System.out.println("Invalid option.");
+
+            return;
+        }
+
+          // Allow customer customization
+        customizeSignatureSandwich(sandwich);
+
+         // Add sandwich into order
+
+        order.addProduct(sandwich);
+
+        System.out.println("Signature sandwich added.");
+    }
+    public void customizeSignatureSandwich(Sandwich sandwich) {
+        boolean customizing = true;
+
+        while (customizing) {
+            System.out.println("\nCustomize Signature Sandwich");
+            System.out.println("1. Add Meat");
+            System.out.println("2. Add Cheese");
+            System.out.println("3. Add Regular Topping");
+            System.out.println("0. Finish");
+
+            System.out.print("Choose option: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            if (choice == 1) {
+                addMeat(sandwich);
+            } else if (choice == 2) {
+                addCheese(sandwich);
+            } else if (choice == 3) {
+                addRegularTopping(sandwich);
+            } else if (choice == 0) {
+                customizing = false;
+            } else {
+                System.out.println("Invalid option.");
+            }
+        }
     }
 
     // ADD DRINK INTO ORDER
