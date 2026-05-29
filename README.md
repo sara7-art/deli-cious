@@ -31,10 +31,10 @@ Bacon.
 Extra meat is available for an additional charge.
 
 Cheeses are: 
-American
-Provolone
-Cheddar
-Swiss
+American,
+Provolone,
+Cheddar,
+Swiss.
 
 Extra cheese is available for an additional charge.
 
@@ -54,7 +54,7 @@ Small,
 Medium,
 Large.
 
-Chips
+Chips:
 Single size available
 
 Signature Sandwiches
