@@ -18,43 +18,43 @@ Wheat
 Rye
 Wrap
 
-Toasted option
-Premium Toppings
-Meats
-Steak
-Ham
-Salami
-Roast Beef
-Chicken
-Bacon
+Toasted option: 
+Premium Toppings are 
+Meats,
+Steak,
+Ham,
+Salami,
+Roast Beef,
+Chicken,
+Bacon.
 
 Extra meat is available for an additional charge.
 
-Cheeses
-American
-Provolone
-Cheddar
-Swiss
+Cheeses are: 
+American,
+Provolone,
+Cheddar,
+Swiss.
 
 Extra cheese is available for an additional charge.
 
-Regular Toppings
-Lettuce
-Peppers
-Onions
-Tomatoes
-Jalapenos
-Cucumbers
-Pickles
-Guacamole
-Mushrooms
+Regular Toppings: 
+Lettuce,
+Peppers,
+Onions,
+Tomatoes,
+Jalapenos,
+Cucumbers,
+Pickles,
+Guacamole,
+Mushrooms.
 
-Drinks
-Small
-Medium
-Large
+Drinks: 
+Small,
+Medium,
+Large.
 
-Chips
+Chips:
 Single size available
 
 Signature Sandwiches
@@ -72,9 +72,9 @@ Steak
 American Cheese
 Peppers
 Toasted
-OOP Concepts Used
-Encapsulation
 
+______________
+#Encapsulation
 Private fields are used throughout the application with getters and setters to protect data.
 
 Examples:
@@ -104,30 +104,32 @@ This allows Sandwich, Drink, and Chips objects to be treated as Product objects.
 #Abstraction
 The Product class is abstract and serves as the foundation for all products.
 
+________________
+
 Project Structure
-com.pluralsight
-│
-| model
-│    Priceable.java
-│    Product.java
-│    Topping.java
-│    Sandwich.java
-│    Drink.java
-│    Chips.java
-│    Order.java
-│
-| ui
-│    HomeScreen.java
-│    OrderScreen.java
-│
-| service
-│    CheckoutService.java
-│
-| signature
-│    BLT.java
-│    PhillyCheeseSteak.java
-│
-|__ Program.java
+
+|______________
+com.pluralsight:
+________
+
+model( Priceable.java, Product.java, Topping.java, Sandwich.java, Drink.java, Chips.java, Order.java)
+
+________
+
+ui (HomeScreen.java, OrderScreen.java)
+ 
+_________
+
+service (CheckoutService.java)
+
+_________
+
+signature (BLT.java, PhillyCheeseSteak.java)
+
+________
+
+Program.java
+_______________
 
 #Receipt
 Receipts are automatically saved when an order is confirmed.
@@ -144,7 +146,9 @@ receipts/
 
 Each receipt file name is generated using the current date and time.
 
-How to Run
+__________
+
+How to Run: 
 Open the project in IntelliJ IDEA.
 Run Program.java.
 Select menu options.
