@@ -3,28 +3,25 @@ package com.pluralsight.model;
 public class Chips extends Product {
 
 
-     // Constructor
+    // Constructor
 
-    public Chips()
-    {
+    public Chips() {
 
         super("Chips");
     }
 
 
-      // Chips always cost $1.50
+    // Chips always cost $1.50
 
     @Override
-    public double calculatePrice()
-    {
+    public double calculatePrice() {
         return 1.50;
     }
 
 
-      // Create receipt text
+    // Create receipt text
 
-    public String getReceiptText()
-    {
+    public String getReceiptText() {
         String text = "";
 
         text += "=================================\n";

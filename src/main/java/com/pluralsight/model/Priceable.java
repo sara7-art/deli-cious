@@ -4,7 +4,7 @@ package com.pluralsight.model;
 // a way to get price and description.
 public interface Priceable {
 
-     // Every product must calculate price
+    // Every product must calculate price
 
     double calculatePrice();
 }

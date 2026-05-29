@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Sandwich extends Product
     {
         // Encapsulation
+        private String sandwichName;
         private final int size;
 
         private final String breadType;
@@ -31,10 +32,24 @@ public class Sandwich extends Product
             // Create empty topping list
 
             toppings = new ArrayList<Topping>();
+
+            //
+            sandwichName = "customSandwich";
         }
 
 
-         // Add topping into sandwich
+
+         // sandwich name
+
+        public String getSandwichName()
+        {
+            return sandwichName;
+        }
+        public void setSandwichName(String sandwichName)
+        {
+            this.sandwichName = sandwichName;
+        }
+        // Add topping into sandwich
 
         public void addTopping(Topping topping)
         {
@@ -61,13 +76,7 @@ public class Sandwich extends Product
             return toppings;
         }
 
-        // Remove topping by index
-
-        public void removeTopping(int index) {
-            if (index >= 0 && index < toppings.size()) {
-                toppings.remove(index);
-            }
-        }
+        //
 
         @Override
         public double calculatePrice()
@@ -111,6 +120,8 @@ public class Sandwich extends Product
             String text = "";
 
             text += "=================================\n";
+            text += "\n" + sandwichName;
+            text += "\n====================";
             text += size + "\" Sandwich\n";
             text += "Bread: " + breadType + "\n";
             text += "Toasted: " + toasted + "\n";

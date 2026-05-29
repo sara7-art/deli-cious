@@ -6,21 +6,21 @@ public abstract class Product implements Priceable {
     private String name;
 
 
-     // Constructor
+    // Constructor
 
     public Product(String name) {
         this.name = name;
     }
 
 
-     // Getter
+    // Getter
 
     public String getName() {
         return name;
     }
 
 
-     // Setter
+    // Setter
 
     public void setName(String name) {
         this.name = name;

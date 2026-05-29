@@ -9,11 +9,12 @@ public class BLT extends Sandwich {
 
     public BLT() {
 
-         // 8 inch
-         // white bread
-         // toasted
+        // 8 inch
+        // white bread
+        // toasted
 
         super(8, "White", true);
+        setSandwichName("BLT");
 
         // ADD DEFAULT TOPPINGS
 

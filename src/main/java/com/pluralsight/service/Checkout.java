@@ -17,31 +17,34 @@ import java.util.Scanner;
         // Scanner for user input
         private final Scanner scanner;
 
+        // Color constants
+        private static final String RESET = "\u001B[0m";
+
+        private static final String YELLOW = "\u001B[33m";
+
+        private static final String PURPLE = "\u001B[35m";
+
 
         // Constructor
 
-        public Checkout()
-        {
+        public Checkout() {
             scanner = new Scanner(System.in);
         }
 
 
         // Display checkout screen
 
-        public void displayCheckout(Order order)
-        {
+        public void displayCheckout(Order order) {
             boolean checkingOut = true;
 
-            while(checkingOut)
-            {
-                System.out.println("\n=================================");
-                System.out.println("            CHECKOUT");
-                System.out.println("=================================");
+            while (checkingOut) {
 
-
-                 // Display full order details
+                // Display full order details
 
                 System.out.println(order.getOrderDetails());
+
+                System.out.println(PURPLE + "ORDER DETAILS" + RESET);
+                System.out.println(YELLOW + "====================================" + RESET);
 
                 System.out.println("\n1. Confirm");
                 System.out.println("0. Cancel");
@@ -52,24 +55,21 @@ import java.util.Scanner;
                 scanner.nextLine();
 
                 // CONFIRM ORDER
-                if(choice == 1)
-                {
+                if (choice == 1) {
                     confirmOrder(order);
 
                     checkingOut = false;
                 }
 
                 // CANCEL ORDER
-                else if(choice == 0)
-                {
+                else if (choice == 0) {
                     cancelOrder();
 
                     checkingOut = false;
                 }
 
                 // INVALID OPTION
-                else
-                {
+                else {
                     System.out.println("Invalid option.");
                 }
             }
@@ -78,9 +78,8 @@ import java.util.Scanner;
 
         // CONFIRM ORDER
 
-        public void confirmOrder(Order order)
-        {
-           // SAVE RECEIPT FILE
+        public void confirmOrder(Order order) {
+            // SAVE RECEIPT FILE
             saveReceipt(order);
 
             System.out.println("Order confirmed.");
@@ -89,18 +88,15 @@ import java.util.Scanner;
 
         // CANCEL ORDER
 
-        public void cancelOrder()
-        {
+        public void cancelOrder() {
             System.out.println("Order canceled.");
         }
 
 
         // Save receipt into receipts folder
 
-        public void saveReceipt(Order order)
-        {
-            try
-            {
+        public void saveReceipt(Order order) {
+            try {
 
                 // Create receipts folder object
 
@@ -109,8 +105,7 @@ import java.util.Scanner;
 
                 // Create folder if it does not exist
 
-                if(!folder.exists())
-                {
+                if (!folder.exists()) {
                     folder.mkdir();
                 }
 
@@ -148,9 +143,7 @@ import java.util.Scanner;
 
                 System.out.println("Receipt saved successfully.");
 
-            }
-            catch(IOException e)
-            {
+            } catch (IOException e) {
                 System.out.println("Error saving receipt.");
             }
         }

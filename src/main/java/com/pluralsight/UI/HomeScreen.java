@@ -8,6 +8,13 @@ public class HomeScreen {
     // Encapsulation
     private final Scanner scanner;
 
+    // constant colors
+    private static final String RESET = "\u001B[0m";
+
+    private static final String YELLOW = "\u001B[33m";
+
+    private static final String PURPLE = "\u001B[35m";
+
     // Constructor
     public HomeScreen() {
 
@@ -15,7 +22,7 @@ public class HomeScreen {
     }
 
 
-        //Display Home Screen
+    //Display Home Screen
 
     public void display() {
 
@@ -23,19 +30,27 @@ public class HomeScreen {
 
         while (running) {
 
-            System.out.println("\n=================================================");
-            System.out.println("        🍔   TOAST & TASTE DELI SHOP   🍔");
-            System.out.println("=================================================");
+            System.out.println(YELLOW +
+                    "==================================================" +
+                    RESET);
 
-            System.out.println("""
+            System.out.println(PURPLE +
+                    "      🍔 TOAST & TASTE DELI SHOP 🍔" +
+                    RESET);
+
+            System.out.println(YELLOW +
+                    "==================================================" +
+                    RESET);
+
+            System.out.println( PURPLE + """
                     
-                     ____
-                    / ___|   Welcome to Toast & Taste!
-                   | |
-                   | |___   Fresh Sandwiches & Drinks
-                    \\____|
+                      ____
+                     / ___|   Welcome to Toast & Taste!
+                    | |
+                    | |___   Fresh Sandwiches & Drinks
+                     \\____|
                     
-                    """);
+                    """ + RESET);
 
             System.out.println("1) New Order");
             System.out.println("0) Exit");
@@ -49,12 +64,12 @@ public class HomeScreen {
 
                 case 1:
 
-                        // Create NEW order object
+                    // Create NEW order object
 
                     Order order = new Order();
 
 
-                        // Open Order Screen
+                    // Open Order Screen
 
                     OrderScreen orderScreen =
                             new OrderScreen();

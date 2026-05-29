@@ -6,11 +6,12 @@ import com.pluralsight.model.Topping;
 public class PhillyCheeseSteak extends Sandwich {
 
     // CONSTRUCTOR
-    public PhillyCheeseSteak(){
+    public PhillyCheeseSteak() {
         // 8inch
         // White bread
         // Toasted
         super(8, "White", true);
+        setSandwichName("Philly Cheese Steak");
 
         // Default Toppings
         addTopping(new Topping("Steak", "meat", false));

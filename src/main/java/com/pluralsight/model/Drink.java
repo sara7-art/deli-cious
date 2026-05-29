@@ -1,15 +1,13 @@
 package com.pluralsight.model;
 
-public class Drink extends Product
-{
+public class Drink extends Product {
     // Encapsulation
     private final String size;
 
     /*
      * Constructor
      */
-    public Drink(String size)
-    {
+    public Drink(String size) {
         /*
          * Call parent constructor
          */
@@ -21,8 +19,7 @@ public class Drink extends Product
     /*
      * Get drink size
      */
-    public String getSize()
-    {
+    public String getSize() {
         return size;
     }
 
@@ -30,31 +27,27 @@ public class Drink extends Product
      * Calculate drink price
      */
     @Override
-    public double calculatePrice()
-    {
+    public double calculatePrice() {
         double price = 0;
 
         /*
          * Small drink
          */
-        if(size.equalsIgnoreCase("small"))
-        {
+        if (size.equalsIgnoreCase("small")) {
             price = 2.00;
         }
 
         /*
          * Medium drink
          */
-        else if(size.equalsIgnoreCase("medium"))
-        {
+        else if (size.equalsIgnoreCase("medium")) {
             price = 2.50;
         }
 
         /*
          * Large drink
          */
-        else if(size.equalsIgnoreCase("large"))
-        {
+        else if (size.equalsIgnoreCase("large")) {
             price = 3.00;
         }
 
@@ -64,8 +57,7 @@ public class Drink extends Product
     /*
      * Create receipt text
      */
-    public String getReceiptText()
-    {
+    public String getReceiptText() {
         String text = "";
 
         text += "=================================\n";

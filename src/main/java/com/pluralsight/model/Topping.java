@@ -115,7 +115,7 @@ public class Topping {
         }
 
 
-         // REGULAR TOPPINGS, SAUCES, AND SIDES ARE FREE
+         // REGULAR TOPPINGS, SAUCES, AND SIDES ARE FREE...
 
         else
         {
